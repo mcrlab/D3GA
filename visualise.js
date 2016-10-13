@@ -42,16 +42,16 @@ window.onresize = function() {
 
 var nodes = d3.range(1).map(function() {
         return {
-            radius: Math.random() * 8 + 4
+            radius: Math.random() * 15 + 4
         };
     }),
     force;
 
 
 force = d3.layout.force()
-    .gravity(0.15)
+    .gravity(0.05)
     .charge(function(d, i) {
-        return i ? 0 : -10000;
+        return i ? 0 : -5000;
     })
     .nodes(nodes)
     .size([w, h]);
