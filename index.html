@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Analytics Visualisation</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script type="text/javascript" src="http://mbostock.github.io/d3/talk/20111018/d3/d3.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.io/d3/talk/20111018/d3/d3.geom.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.io/d3/talk/20111018/d3/d3.layout.js"></script>
+    <script>
+    (function(w, d, s, g, js, fs) {
+        g = w.gapi || (w.gapi = {});
+        g.analytics = {
+            q: [],
+            ready: function(f) {
+                this.q.push(f);
+            }
+        };
+        js = d.createElement(s);
+        fs = d.getElementsByTagName(s)[0];
+        js.src = 'https://apis.google.com/js/platform.js';
+        fs.parentNode.insertBefore(js, fs);
+        js.onload = function() {
+            g.load('analytics');
+        };
+    }(window, document, 'script'));
+    </script>
+    <script src="https://ga-dev-tools.appspot.com/public/javascript/embed-api/components/view-selector2.js"></script>
+    <script src="https://ga-dev-tools.appspot.com/public/javascript/embed-api/components/active-users.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="body">
+        <div id="footer">
+            ThoughtWorks.com Visitors
+            <div class="hint">
+                <div id="embed-api-auth-container"></div>
+                <div id="view-selector-container"></div>
+                <div id="active-users-container"></div>
+            </div>
+        </div>
+    </div>
+    <script src="visualise.js"></script>
+</body>
+
+</html>
