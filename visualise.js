@@ -161,49 +161,6 @@ function collide(node) {
         return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
     };
 }
-
-
-
-
-gapi.analytics.ready(function() {
-
-    gapi.analytics.auth.authorize({
-        container: 'embed-api-auth-container',
-        clientid: '255627075968-fs78r32me2ld9vv24c7f9894c9olflj5.apps.googleusercontent.com'
-    });
-
-    var activeUsers = new gapi.analytics.ext.ActiveUsers({
-        container: 'active-users-container',
-        pollingInterval: 5
-    });
-
-    activeUsers.once('success', function() {
-
-        this.on('change', function(data) {
-            if (data.delta > 0) {
-                console.log("adding " + data.delta);
-                for (var i = 0; i < data.delta; i++) {
-                    add();
-                }
-            } else if (data.delta < 0) {
-                console.log("removing " + (data.delta * -1));
-                for (var i = 0; i < (data.delta * -1); i++) {
-                    remove();
-                }
-
-            }
-
-        });
-    });
-
-    var viewSelector = new gapi.analytics.ext.ViewSelector2({
-            container: 'view-selector-container',
-        })
-        .execute();
-
-    viewSelector.on('viewChange', function(data) {
-        activeUsers.set(data).execute();
-    });
-
-
-});
+for (var i = 0; i < 1000; i++){
+    add()
+}
